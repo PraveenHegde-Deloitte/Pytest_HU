@@ -1,46 +1,61 @@
 class StringClass:
+
     def __init__(self,demo):
         self.demo=demo
-    def lis(self):
-        return(list(self.demo))
+
+    def list(self):
+        return (list(self.demo))
+
     def length(self):
         return len(self.demo)
 
-
 class PairsPossible(StringClass):
-    def pairspossible(self,test_list):
-        res = [(n,object1) for idx,n in enumerate(test_list)for object1 in test_list[idx+1:]]
-        print(res)
 
+    def pairspossible(self,test_list):
+        result = [(n,j) for idx,n in enumerate(test_list)for j in test_list[idx+1:]]
+        print(result)
 
 class SearchCommonElements(StringClass):
-    def commonelements(self,st,demo):
-        a = list(set(st) & set(demo))
-        print(a)
+
+    def commonelements(self,str1,str2):
+        str3 = list(set(str1) & set(str2))
+        print(str3)
+
+class EqualSumPairs():
+
+    def Equalpair(self,test_list):
+        uniqueSums=[]
+        result = [sum((int(n),int(j))) for idx,n in enumerate(test_list) for j in test_list[idx+1:]]
+        print(result)
+        n=len(result)
+        sums = dict()
+
+        for num in range(n):
+            if result[num] in sums.keys():
+                sums[result[num]] += 1
+            else:
+                sums[result[num]] = 1
+        for num in sums:
+            if sums[num] == 1:
+                uniqueSums.append(num)
+        print(uniqueSums)
+        print(len(uniqueSums))
 
 
-class EqualSumPairs:
-    def equalsumpairs(self,test_list):
-        res = [sum((int(n),int(object1))) for idx,n in enumerate(test_list) for object1 in test_list[idx+1:]]
-        print(set(res))
-        print(len(set(res)))
 
-
-n=input("Enter a string :")
-object1=StringClass(n)
-print(object1.lis())
+string1=input("Enter a string :")
+object1=StringClass(string1)
+print(object1.list())
 print(object1.length())
+list1=object1.list()
 
-#Pairs possible
-h=object1.lis()
 object2=PairsPossible(object1)
-object2.pairspossible(h)
+object2.pairspossible(list1)
 
-#CommonElements
-st=input("Enter string to compare ")
-object3=SearchCommonElements(object1)
-object3.commonelements(n,st)
+string2=input("Enter string to compare :")
+object3=SearchCommonElements(list1)
+object3.commonelements(string1,string2)
 
-#Equal Sum Pairs
+print('sum of pairs')
 object4=EqualSumPairs()
-object4.equalsumpairs(h)
+object4.Equalpair(list1)
