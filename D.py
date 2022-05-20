@@ -7,5 +7,4 @@ for key in Keys:
         result[key] = value
         Values.remove(value)
         break
-
 print("Resultant dictionary is : " + str(result))
