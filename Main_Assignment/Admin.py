@@ -1,4 +1,4 @@
-#admin page
+#admin  tpage
 class Admin:
     added_movies = []
     movie_timings={}
