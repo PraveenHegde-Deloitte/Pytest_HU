@@ -1,3 +1,4 @@
+#admin page
 class Admin:
     added_movies = []
     movie_timings={}
